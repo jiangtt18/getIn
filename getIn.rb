@@ -10,6 +10,21 @@ def _StepIn(m, pointer, arr, notFound=nil)
 end
 
 
+def getIn(m,ks,notFound=nil)
+  dic = m;
+  i = 0;
+  while i < ks.length
+    key = ks[i].to_sym;
+    if dic.has_key?(key)
+      dic = dic[key]
+      return dic if(i === ks.length-1)
+    else
+      return notFound;
+    end
+    i=i+1
+  end
+end
+
 user = {
   username: "sally",
   profile: {
